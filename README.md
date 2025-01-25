@@ -47,6 +47,8 @@ python gradio_app.py
 ```
 
 - Use API
+
+###  Pexels Cottonbro Demo
 ```python
 from gradio_client import Client, handle_file
 
@@ -74,8 +76,6 @@ print(remove_result["video"])
 !cp /tmp/gradio/923cb39ff7cb1a1456e5f51a908bbc55ab0063c61ae2d18e6ab8a1bef448e2ee/diffueraser_result.mp4 .
 ```
 
-###  Pexels Cottonbro Demo
-
 - Source Video
 
 https://github.com/user-attachments/assets/57688993-2811-439e-8397-352400c48fb5
@@ -93,6 +93,61 @@ https://github.com/user-attachments/assets/636c132b-2ef7-44ca-87f4-08bc530e8d08
 - Background Video
 
 https://github.com/user-attachments/assets/f715efe8-a771-4f5f-a4ce-93e1448b568e
+
+
+### Genshin Impact Alhaitham Demo
+```python
+from gradio_client import Client, handle_file
+
+input_video = "海瑟姆.mp4"
+client = Client("http://127.0.0.1:7860")
+mask_result = client.predict(
+		input_video_path={"video":handle_file(input_video)},
+		api_name="/video"
+)
+print(mask_result)
+
+client = Client("http://127.0.0.1:7861")
+remove_result = client.predict(
+		input_video={"video":handle_file(input_video)},
+		input_mask={"video":handle_file(mask_result[1]["video"])},
+		api_name="/infer"
+)
+print(remove_result["video"])
+```
+
+- Source Video
+
+
+
+https://github.com/user-attachments/assets/b23c9542-3c42-49fd-8002-10ded8f7c9fc
+
+
+
+
+- Foreground Video
+
+
+
+
+https://github.com/user-attachments/assets/e64a37eb-1532-43bf-b36e-66d2a72c6a63
+
+
+- Mask Video 
+
+
+
+
+https://github.com/user-attachments/assets/866a3b40-e28a-4f4c-bb41-242d7e1995ff
+
+
+
+- Background Video
+
+
+
+
+https://github.com/user-attachments/assets/de8d36c6-9f10-430b-910d-ed294f15f8f1
 
 
 
