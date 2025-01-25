@@ -36,6 +36,44 @@ DiffuEraser is a diffusion model for video inpainting, which outperforms state-o
 
 ---
 
+```bash
+git clone https://huggingface.co/spaces/svjack/BRIA-RMBG-2.0-Video && cd BRIA-RMBG-2.0-Video
+pip install -r requirements.txt
+python video_mask_app.py
+
+git clone https://huggingface.co/spaces/svjack/DiffuEraser-demo && cd DiffuEraser-demo
+pip install -r requirements.txt
+python gradio_app.py
+```
+
+- Use API
+```python
+from gradio_client import Client, handle_file
+
+input_video = "BRIA-RMBG-2.0-Video/pexels-cottonbro-5319934.mp4"
+client = Client("http://127.0.0.1:7860")
+mask_result = client.predict(
+		input_video_path={"video":handle_file(input_video)},
+		api_name="/video"
+)
+print(mask_result)
+
+'''
+({'video': '/tmp/gradio/3610deccb81278a372e275ff4c4437c85e35d9df446c6a30300b2334ffc7dbf9/no_bg_video.mp4', 'subtitles': None},
+{'video': '/tmp/gradio/387deaba8c09cb8fe6b57a52fffba1b4a9dbc24f9497def5466d68ef6ba82f2c/mask_video.mp4', 'subtitles': None})
+'''
+
+client = Client("http://127.0.0.1:7861")
+remove_result = client.predict(
+		input_video={"video":handle_file(input_video)},
+		input_mask={"video":handle_file(mask_result[1]["video"])},
+		api_name="/infer"
+)
+print(remove_result["video"])
+
+!cp /tmp/gradio/923cb39ff7cb1a1456e5f51a908bbc55ab0063c61ae2d18e6ab8a1bef448e2ee/diffueraser_result.mp4 .
+```
+
 
 ## Update Log
 - *2025.01.20*: Release inference code.
