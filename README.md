@@ -74,6 +74,26 @@ print(remove_result["video"])
 !cp /tmp/gradio/923cb39ff7cb1a1456e5f51a908bbc55ab0063c61ae2d18e6ab8a1bef448e2ee/diffueraser_result.mp4 .
 ```
 
+- Source Video
+
+https://github.com/user-attachments/assets/57688993-2811-439e-8397-352400c48fb5
+
+
+- 
+
+https://github.com/user-attachments/assets/d4b058d0-6b3b-4afc-af89-722ecb25c5e8
+
+- 
+
+https://github.com/user-attachments/assets/636c132b-2ef7-44ca-87f4-08bc530e8d08
+
+
+- Background Video
+
+https://github.com/user-attachments/assets/f715efe8-a771-4f5f-a4ce-93e1448b568e
+
+
+
 
 ## Update Log
 - *2025.01.20*: Release inference code.
