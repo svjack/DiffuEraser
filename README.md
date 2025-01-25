@@ -74,6 +74,8 @@ print(remove_result["video"])
 !cp /tmp/gradio/923cb39ff7cb1a1456e5f51a908bbc55ab0063c61ae2d18e6ab8a1bef448e2ee/diffueraser_result.mp4 .
 ```
 
+###  Pexels Cottonbro Demo
+
 - Source Video
 
 https://github.com/user-attachments/assets/57688993-2811-439e-8397-352400c48fb5
